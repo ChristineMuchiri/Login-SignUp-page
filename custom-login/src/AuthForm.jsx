@@ -3,6 +3,7 @@ import { signIn, signUp } from 'aws-amplify/auth'
 import './AuthForm.css'
 
 export default function AuthForm() {
+    const [mode, setMode] = useState(null);
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     
@@ -19,6 +20,7 @@ export default function AuthForm() {
                 }
             });
             alert('Signup successful.');
+            setMode(null);
         } catch (err) {
             alert(err.message);
         }
@@ -32,29 +34,62 @@ export default function AuthForm() {
                 password
             });
             alert('Login successful!');
+            setMode(null);
         } catch (err) {
             alert(`Login failed: ${err.message}`);
-         }
-};
+        }
+    };
 
 
     return (
-    <div className="auth-container">
-      <input
-        type="text"
-        placeholder="Choose username"
-        value={username}
-        onChange={(e) => setUsername(e.target.value)}
-      />
-      <input
-        type="password"
-        placeholder="Password"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-      />
-      <button onClick={handleSignup}>Sign Up</button>
-      <button onClick={handleLogin}>Log In</button>
-    </div>
-  );
+        <>
+            <div className="main-content-area">
+        <div className="auth-container">
+            {!mode && (
+                <>
+                    <h2>Welcome to WhistleKE</h2>
+                    <p>Speak Truth to Power, Anonymously</p>
+                    <button className='primary-button' onClick={() => setMode('signup')}>
+                        Create Alias
+                    </button>
+                    <button className='primary-button' onClick={() => setMode('login')}>
+                        Access
+                    </button>
+                </>
+            )}
+            {(mode === 'signup' || mode === 'login') && (
+                <div className='form-area'>
+                    <h2>{mode === 'signup' ? 'Create Alias' : 'Access'}</h2>
+                    <input
+                        type='text'
+                        placeholder='Alias'
+                        value={username}
+                        onChange={(e) => setUsername(e.target.value)}
+                    />
+                    <input
+                        type='password'
+                        placeholder='password'
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                    />
+                    <button
+                        className='submit-button'
+                        onClick={mode === 'signup' ? handleSignup : handleLogin}
+                    >
+                        {mode === 'signup' ? 'Create Alias' : 'Access'}
+                    </button>
+                    <button className='back-button' onClick={() => setMode(null)}>
+                        Back
+                    </button>
+                </div>
+            )}
+                </div>
+                </div>
+        <footer>
+        © 2025 WhistleKE 
+    </footer>
+        </>
+    );
 }
-
+                    
+      

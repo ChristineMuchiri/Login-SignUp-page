@@ -1,64 +1,157 @@
-/* AuthForm.css */
-/* src/styles/AuthForm.css */
+/* General Body/Root styles for dark theme */
+html, body {
+    height: 100%; /* Ensures html and body take full viewport height */
+    margin: 0; /* Remove default browser margins */
+    padding: 0; /* Remove default browser padding */
+    overflow-x: hidden;
+  }
+
+body {
+    background-color: #121212; /* Slightly less harsh dark grey */
+    color: #b0b0b0; /* Softer grey for general text */
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Courier New', Courier, monospace; /* Monospaced font for a terminal feel */
+}
+
+.main-content-area {
+    flex: 1; /* This makes this flex item (the main content) grow to fill available space */
+    display: flex; /* Make it a flex container itself */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    padding-bottom: 20px; /* Add some padding if you want space between the bottom of the auth-container and the footer */
+    box-sizing: border-box;
+  }
+
 
 .auth-container {
-  max-width: 400px;
-  margin: 2rem auto;
-  padding: 2rem;
-  border-radius: 8px;
-  background-color: #2d3748;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    max-height: 90vh;
+    background-color: #0d0d0d; /* Very dark background for the container */
+    padding: 40px; /* Increased padding for more space */
+    box-shadow: 0 0 20px rgba(0, 255, 0, 0.2); /* Softer, wider green glow */
+    border: 1px solid #005500; /* Dark green border */
+    border-radius: 10px; /* Slightly more rounded corners */
+    max-width: 550px;
+    width: 90%; /* Increased max-width to make it bigger */
+    margin: 0 auto; /* Center the container with more margin */
+    position: relative;
+    overflow: auto;
 }
 
-.auth-container input {
-  display: block;
-  width: 100%;
-  padding: 0.75rem;
-  margin-bottom: 1rem;
-  border: 1px solid #4a5568;
-  border-radius: 4px;
-  background-color: #1a202c;
-  color: white;
-  font-size: 1rem;
+/* Optional: Subtle static/noise effect */
+.auth-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAIAAAACCAYAAABytg0gAAAAFElEQVQIHWM8f//PQ0wMDAxMTAwMDIwMAMdSAfXw98yTAAAAAElFTkSuQmCC');
+    opacity: 0.03; /* Even more subtle */
+    pointer-events: none;
 }
 
-.auth-container input::placeholder {
-  color: #a0aec0;
+h2 {
+    color: #00ff00; /* Still neon green for headings, but less everywhere else */
+    text-shadow: 0 0 8px rgba(0, 255, 0, 0.7); /* Stronger glow for headings */
+    margin-bottom: 30px; /* More space below headings */
+    text-transform: uppercase;
+    letter-spacing: 3px; /* More pronounced letter spacing */
+    font-size: 2em; /* Slightly larger heading */
 }
 
-.auth-container input:focus {
-  outline: none;
-  border-color: #4299e1;
-  box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.2);
+.primary-button, .submit-button, .back-button {
+    background-color: #004400; /* Darker green for buttons */
+    color: #00ff00; /* Neon green text on buttons */
+    border: 1px solid #007700; /* Brighter green border */
+    padding: 14px 30px; /* Increased padding */
+    margin: 12px 0; /* More margin between buttons */
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.2em; /* Larger font size */
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    width: 90%; /* Buttons take up more width */
+    max-width: 300px; /* Increased max-width for buttons */
 }
 
-.auth-container button {
-  width: 100%;
-  padding: 0.75rem;
-  margin-top: 0.5rem;
-  border: none;
-  border-radius: 4px;
-  font-size: 1rem;
-  font-weight: 600;
-  cursor: pointer;
-  transition: background-color 0.2s;
+.primary-button:hover, .submit-button:hover, .back-button:hover {
+    background-color: #006600; /* Lighter green on hover */
+    box-shadow: 0 0 12px rgba(0, 255, 0, 0.8); /* Stronger glow on hover */
 }
 
-.auth-container button:nth-child(3) {
-  background-color: #48bb78;
-  color: white;
+.form-area {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%; /* Ensure it takes full width of its parent */
+    padding: 30px; /* Increased padding inside the form area */
+    background-color: #1a1a1a; /* Distinct, slightly lighter dark grey for the form background */
+    border-radius: 10px;
+    box-shadow: inset 0 0 8px rgba(0, 255, 0, 0.2); /* Softer inner glow for the form */
 }
 
-.auth-container button:nth-child(3):hover {
-  background-color: #38a169;
+input[type="text"],
+input[type="password"] {
+    background-color: #0c0c0c; /* Very dark for input fields */
+    color: #00ff00; /* Neon green text */
+    border: 1px solid #005500; /* Dark green border */
+    padding: 12px; /* Increased padding */
+    margin: 10px 0; /* More margin around inputs */
+    border-radius: 4px;
+    font-size: 1.1em; /* Larger font size */
+    width: 90%; /* Inputs take up more width */
+    max-width: 300px; /* Increased max-width for inputs */
+    outline: none;
+    box-shadow: inset 0 0 4px rgba(0, 255, 0, 0.2); /* Subtle inner glow */
+    caret-color: #00ff00; /* Green cursor */
 }
 
-.auth-container button:nth-child(4) {
-  background-color: #4299e1;
-  color: white;
+input[type="text"]::placeholder,
+input[type="password"]::placeholder {
+    color: #009900; /* Slightly brighter green for placeholder text */
+    opacity: 0.8;
 }
 
-.auth-container button:nth-child(4):hover {
-  background-color: #3182ce;
+input[type="text"]:focus,
+input[type="password"]:focus {
+    border-color: #00ff00; /* Bright green border on focus */
+    box-shadow: 0 0 10px rgba(0, 255, 0, 0.9); /* Stronger glow on focus */
 }
 
+.form-area .submit-button,
+.form-area .back-button {
+    margin-top: 25px; /* More space above submit/back buttons */
+}
+
+/* Footer Styles */
+footer {
+    background: #0d0f12;
+    color: #a0aec0;
+    padding: 1.5rem;
+    text-align: center;
+    font-family: 'Courier New', monospace;
+    background-color: #0d0d0d;
+    color: #b0b0b0;
+    text-align: center;
+    margin-top: 150px; /* Pushes the footer to the bottom */
+    flex-shrink: 0; /* Prevents the footer from shrinking */
+    box-sizing: border-box;
+    width: 100%; /* Ensure footer takes full width */
+  /* Works with flexbox parent */
+}
+
+footer a {
+    color: #00ff00; /* Green links in the footer */
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline; /* Underline links on hover */
+}
