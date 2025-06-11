@@ -1,0 +1,20 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-customlogin-dev-3742c-authRole",
+      "UnauthRoleArn": "arn:aws:iam::025066266149:role/amplify-customlogin-dev-3742c-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::025066266149:role/amplify-customlogin-dev-3742c-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-customlogin-dev-3742c-deployment",
+      "UnauthRoleName": "amplify-customlogin-dev-3742c-unauthRole",
+      "StackName": "amplify-customlogin-dev-3742c",
+      "StackId": "arn:aws:cloudformation:us-east-1:025066266149:stack/amplify-customlogin-dev-3742c/1863e010-4697-11f0-931b-1267deedda0b",
+      "AmplifyAppId": "d3nuzdxxrzsvj4"
+    },
+    "categories": {
+      "auth": {
+        "custologinauth": {}
+      }
+    }
+  }
+}
