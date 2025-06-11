@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { signIn, signUp } from 'aws-amplify/auth'
 import './AuthForm.css'
 
-export default function AuthForm() {
+export default function AuthForm({onLogin}) {
     const [mode, setMode] = useState(null);
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
@@ -29,11 +29,13 @@ export default function AuthForm() {
 
     const handleLogin = async () => {
         try {
-            await signIn({
+
+            const loggedUser = await signIn({
                 username,
                 password
             });
             alert('Login successful!');
+            onLogin(loggedUser)
             setMode(null);
         } catch (err) {
             alert(`Login failed: ${err.message}`);

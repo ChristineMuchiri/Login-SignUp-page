@@ -132,12 +132,10 @@ input[type="password"]:focus {
 
 /* Footer Styles */
 footer {
-    background: #0d0f12;
-    color: #a0aec0;
     padding: 1.5rem;
     text-align: center;
     font-family: 'Courier New', monospace;
-    background-color: #0d0d0d;
+    background-color: #121212;
     color: #b0b0b0;
     text-align: center;
     margin-top: 150px; /* Pushes the footer to the bottom */
